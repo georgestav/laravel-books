@@ -4,6 +4,8 @@
 <div>
     <div>Name: <div>{{$publisher->name}}</div></div>
     <div>Updated at: <div>{{$publisher->updated_at}}</div></div>
+    
+    @auth
     <div>
         <form action="{{ action('Admin\PublisherController@destroy', ['id' => $publisher->id])}}" method="post">
             @method('DELETE')
@@ -15,5 +17,6 @@
             <input type="submit" value="Edit">
         </form>
     </div>
+    @endauth
 </div>
 @endsection
