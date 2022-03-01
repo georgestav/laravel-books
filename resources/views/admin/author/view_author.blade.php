@@ -2,9 +2,9 @@
 
 @section('content')
 <div>
-    <div>Name: {{$author->name}}</div>
-    <div>Bio: {{$author->bio}}</div>
-    <div>Updated at: {{$author->updated_at}}</div>
+    <div>Name: <div>{{$author->name}}</div></div>
+    <div>Biography: <div>{{$author->bio}}</div></div>
+    <div>Updated at: <div>{{$author->updated_at}}</div></div>
     <div>
         <form action="{{ action('Admin\AuthorController@destroy', ['id' => $author->id])}}" method="post">
             @method('DELETE')
