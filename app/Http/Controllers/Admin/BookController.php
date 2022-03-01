@@ -21,10 +21,7 @@ class BookController extends Controller
     public function show($id)
     {
         $book = Book::findOrFail($id);
-        $reviews = Review::where('book_id', $id)->get();
-
-
-        return view('admin.book.view_book', ['book' => $book, 'reviews' => $reviews]);
+        return view('admin.book.view_book', compact('book'));
     }
 
     public function storeBookReview(Request $request)
