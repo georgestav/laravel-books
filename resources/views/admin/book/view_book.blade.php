@@ -14,18 +14,13 @@
     <div>Published: <div>{{$book->publication_date}}</div></div>
     <div>Updated at: <div>{{$book->updated_at}}</div></div>
     
-    @auth
-    {{-- <div>
-        <form action="{{ action('Admin\BookController@destroy', ['id' => $book->id])}}" method="post">
-            @method('DELETE')
-            @csrf
-            <input type="submit" value="Delete">
-        </form>        
-        <form action="{{ action('Admin\BookController@edit', ['id' => $book->id])}}" method="get">
-            @csrf
-            <input type="submit" value="Edit">
-        </form>
-    </div> --}}
-    @endauth
+   
 </div>
+
+@include('admin.review.review_form') {{-- Displays when logged in --}}
+
+
+@include('admin.book.show_book_reviews')
+
+
 @endsection

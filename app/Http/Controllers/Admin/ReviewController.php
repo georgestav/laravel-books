@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use App\Models\Review;
+use App\Models\Book;
 use Illuminate\Http\Request;
 
 class ReviewController extends Controller
@@ -22,7 +23,7 @@ class ReviewController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id)
     {
         //
     }

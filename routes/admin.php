@@ -49,3 +49,5 @@ Route::post('/admin/bookshops/search', [BookshopController::class, 'search']);
 Route::get('/admin/books/', [BookController::class, 'index']);
 
 Route::get('/admin/books/{id}', [BookController::class, 'show']);
+
+Route::post('/admin/books/{id}/review', [BookController::class, 'storeBookReview'])->middleware('auth');
