@@ -1,4 +1,5 @@
 <nav>
+    <a href="{{action('Admin\BookController@index')}}">List of Books</a>
     <a href="{{action('Admin\AuthorController@index')}}">List of Authors</a>
     <a href="{{action('Admin\PublisherController@index')}}">List of Publishers</a>
     <a href="{{action('Admin\BookshopController@index')}}">List of Bookshops</a>

@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\AuthorController;
 use App\Http\Controllers\Admin\PublisherController;
 use App\Http\Controllers\Admin\BookshopController;
+use App\Http\Controllers\Admin\BookController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/admin/', function () {
@@ -41,3 +42,10 @@ Route::get('/admin/bookshops/{id}/edit', [BookshopController::class, 'edit'])->m
 Route::put('/admin/bookshops/{id}', [BookshopController::class, 'update'])->middleware('auth'); //show bookshop by their id
 Route::delete('/admin/bookshops/{id}', [BookshopController::class, 'destroy'])->middleware('auth'); //show bookshop by their id
 Route::post('/admin/bookshops/search', [BookshopController::class, 'search']);
+
+
+//Book Routes
+
+Route::get('/admin/books/', [BookController::class, 'index']);
+
+Route::get('/admin/books/{id}', [BookController::class, 'show']);
