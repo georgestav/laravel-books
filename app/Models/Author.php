@@ -10,19 +10,8 @@ class Author extends Model
 {
     use HasFactory;
 
-    /**
-     * Get all authors from DB
-     */
-    public static function getAllAuthors(null|int $limit): object
-    {
-        $authors = Author::limit($limit ?? 15)
-            ->orderByDesc('updated_at')
-            ->get();
 
-        return $authors;
-    }
-
-    public static function saveNewAuthor($request)
+    public static function saveAuthor($request)
     {
         $author = new Author;
         $author->name = ucfirst($request->author_name) . ' ' . ucfirst((strtolower($request->author_last_name)));

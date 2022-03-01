@@ -11,7 +11,7 @@
             @csrf
             <input type="submit" value="Delete">
         </form>        
-        <form action="/admin/authors/{{$author->id}}/edit" method="get">
+        <form action="{{ action('Admin\AuthorController@edit', ['id' => $author->id])}}" method="get">
             @csrf
             <input type="submit" value="Edit">
         </form>

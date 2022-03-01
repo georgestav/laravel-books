@@ -14,7 +14,9 @@ class AuthorController extends Controller
      */
     public function index()
     {
-        $authors = Author::getAllAuthors(null);
+        $authors = Author::limit($limit ?? 15)
+            ->orderByDesc('updated_at')
+            ->get();
         return view('admin.author.index', compact('authors'));
     }
 
@@ -25,7 +27,7 @@ class AuthorController extends Controller
 
     public function store(Request $request)
     {
-        $author = Author::saveNewAuthor($request);
+        $author = Author::saveAuthor($request);
         return view('admin.author.view_author', compact('author'));
     }
 
@@ -41,13 +43,21 @@ class AuthorController extends Controller
 
         return view('admin.author.create_form', compact('author'));
     }
+
+    public function update(Request $request)
+    {
+        $author = Author::saveAuthor($request);
+        return view('admin.author.view_author', compact('author'));
+    }
+
+
     public function destroy($id)
     {
         $res = Author::destroy($id);
         if ($res === 1) {
-            return redirect('http://www.cbp-books.com/admin/authors')->with('success', 'Author Deleted successfully!');
+            return redirect('/admin/authors');
         } else {
-            return redirect('http://www.cbp-books.com/admin/authors')->with('failed', 'Operation unsuccesful!');
+            return redirect('/admin/authors');
         }
     }
 }
