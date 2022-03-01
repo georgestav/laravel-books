@@ -1,7 +1,7 @@
 @extends('assets.base')
 
 @section('content')
-@include('admin.publisher.navigation_publisher')
+
 <div class="count__publishers" style="margin: 1rem 0">
     {{count($publishers)}} Publishers Displaying
 </div>

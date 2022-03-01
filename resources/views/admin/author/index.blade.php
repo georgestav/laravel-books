@@ -1,7 +1,7 @@
 @extends('assets.base')
 
 @section('content')
-@include('admin.author.navigation_author')
+
 <div class="count__authors" style="margin: 1rem 0">
     {{count($authors)}} Authors Displaying
 </div>
