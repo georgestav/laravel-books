@@ -14,6 +14,17 @@
          <button>Logout</button>
     </form>
     @endauth
+
+    {{-- admin only --}}
+    @if (Gate::allows('admin'))
+        <a>ADMIN PANEL</a>
+    @endif
+
+    @can('admin')
+    <a>STATS PANEL</a>
+    @endcan
+
+
     {{-- if not loged in display the login button--}}
     @guest
     <a href="/login">Login</a>

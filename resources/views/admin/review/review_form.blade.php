@@ -1,6 +1,6 @@
 @auth    
 <div class="review__form">
-    <h3>Leave your review of book</h3>
+    <h3>Leave your review of this book</h3>
     <form action="{{action('Admin\BookController@storeBookReview',['id'=>$book->id])}}" method="post">
         @csrf
         <div>

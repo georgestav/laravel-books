@@ -6,11 +6,6 @@ use App\Http\Controllers\Admin\BookshopController;
 use App\Http\Controllers\Admin\BookController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/admin/', function () {
-    return 'test';
-})->middleware('auth');
-
-
 //Authors Routes
 Route::get('/admin/authors/', [AuthorController::class, 'index']); // admin view authors
 Route::get('/admin/authors/create', [AuthorController::class, 'create'])->middleware('auth'); // admin create author
