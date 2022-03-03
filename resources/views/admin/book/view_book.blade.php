@@ -13,8 +13,13 @@
     
     <div>Published: <div>{{$book->publication_date}}</div></div>
     <div>Updated at: <div>{{$book->updated_at}}</div></div>
-    
-   
+</div>
+<div>
+    <ul>
+        @foreach ($book->bookshop as $available_book)
+        <li><a class="bookshop__link" href="{{ action('Admin\BookshopController@show', ['id' => $available_book->id])}}">{{$available_book->name}}</a> found in: {{$available_book->city}}</li>
+        @endforeach
+    </ul>
 </div>
 
 @include('admin.review.review_form') {{-- Displays when logged in --}}

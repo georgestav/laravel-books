@@ -84,8 +84,14 @@ class PublisherController extends Controller
         ]);
 
         $publisher = Publisher::findOrFail($request->id);
-        $publisher->name = ucfirst($request->publisher_name) . ' ' . ucfirst((strtolower($request->publisher_last_name)));
-        $publisher->slug = strtolower($request->publisher_name) . '-' . strtolower($request->publisher_last_name) . '-publisher';
+        $publisher->name = ucfirst($request->publisher_name) . ' ' . ucfirst((strtolower(
+            $request
+                ->publisher_last_name
+        )));
+        $publisher->slug = strtolower($request->publisher_name) . '-' . strtolower(
+            $request
+                ->publisher_last_name
+        ) . '-publisher';
 
         $publisher->save();
         session()->flash('success_message', 'Publisher saved successfully');
