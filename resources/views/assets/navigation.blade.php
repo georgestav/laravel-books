@@ -21,7 +21,7 @@
     @endif
 
     @can('admin')
-    <a>STATS PANEL</a>
+    <a href="{{ action("Admin\ReviewController@index") }}">Reviews list</a>
     @endcan
 
 

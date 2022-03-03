@@ -8,6 +8,7 @@
     <title>{{"BookStore"}}</title>
 </head>
 <body>
+    
     @include('assets.navigation')
     @include('components.alerts')
 

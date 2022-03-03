@@ -7,7 +7,7 @@
 </div>
     <ul>
         @foreach ($books as $book)
-        <li><a class="book__link" href="{{ action('Admin\BookController@show', ['id' => $book->id])}}">{{$book->title}}</a></li>
+        <li><a class="book__link" href="{{ action('Admin\BookController@show', ['id' => $book->id])}}">{{$book->title}}</a> {{count($book->reviews)}} reviews</li>
         @endforeach
     </ul>
 @endsection

@@ -1,4 +1,5 @@
-@auth    
+@if (Auth::check())
+    
 <div class="review__form">
     <h3>Leave your review of this book</h3>
     <form action="{{action('Admin\BookController@storeBookReview',['id'=>$book->id])}}" method="post">
@@ -11,8 +12,6 @@
         </div>
     </form>
 </div>
-@endauth
-
-@guest
+@else
 <h3>You need to Log in to review this book</h3>
-@endguest
+@endif 

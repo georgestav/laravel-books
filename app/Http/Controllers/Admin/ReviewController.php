@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 use App\Models\Review;
 use App\Models\Book;
-use Illuminate\Http\Request;
 
 class ReviewController extends Controller
 {
@@ -15,7 +16,8 @@ class ReviewController extends Controller
      */
     public function index()
     {
-        //
+        $reviews = Review::all();
+        return view('admin.review.list_reviews', compact('reviews'));
     }
 
     /**
@@ -81,6 +83,12 @@ class ReviewController extends Controller
      */
     public function destroy(Review $review)
     {
-        //
+        // dd($review->id);
+        $res = Review::destroy($review->id);
+        if ($res === 1) {
+            return redirect()->action('Admin\ReviewController@index');
+        } else {
+            return redirect()->action('Admin\ReviewController@index');
+        }
     }
 }

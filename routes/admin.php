@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\AuthorController;
 use App\Http\Controllers\Admin\PublisherController;
 use App\Http\Controllers\Admin\BookshopController;
 use App\Http\Controllers\Admin\BookController;
+use App\Http\Controllers\Admin\ReviewController;
 use Illuminate\Support\Facades\Route;
 
 //Authors Routes
@@ -46,3 +47,11 @@ Route::get('/admin/books/', [BookController::class, 'index']);
 Route::get('/admin/books/{id}', [BookController::class, 'show']);
 
 Route::post('/admin/books/{id}/review', [BookController::class, 'storeBookReview'])->middleware('auth');
+
+
+//review Routes
+
+Route::group(['middleware' => 'can:admin'], function () {
+    Route::get('/admin/reviews', [ReviewController::class, 'index']);
+    Route::delete('/admin/reviews/{review}', [ReviewController::class, 'destroy']);
+});
